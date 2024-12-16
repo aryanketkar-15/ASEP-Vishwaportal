@@ -67,6 +67,7 @@ p {
     margin-left: 181px;
     padding: 20px;
     flex-grow: 1;
+    margin-top: -40px;
 }
 
 /* Form and Notice Styles */
