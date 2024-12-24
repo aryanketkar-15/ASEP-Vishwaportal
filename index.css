@@ -1,21 +1,23 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
+    background-color: #121212;
+    color: #e0e0e0;
     margin: 0;
     padding: 0;
     display: flex;
 }
 
 h1 {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #1f1f1f;
+    color: #e0e0e0;
     padding: 20px;
     text-align: left;
     margin-bottom: 0;
     width: 100%;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid #333;
 }
 
 h1 .logo {
@@ -25,7 +27,7 @@ h1 .logo {
 }
 
 h2 {
-    color: #4CAF50;
+    color: #f5f5f5;
 }
 
 p {
@@ -37,129 +39,317 @@ p {
 .sidebar {
     width: 200px;
     height: 100vh;
-    background-color: #333;
+    background-color: #1c1c1c;
     padding-top: 20px;
     position: fixed;
     left: 0;
     top: 0;
-    color: white;
-    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+    color: #bdbdbd;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
 }
 
 .sidebar button {
-    background-color: #333;
-    color: white;
+    background-color: #1c1c1c;
+    color: #bdbdbd;
     padding: 15px;
     width: 100%;
     text-align: left;
     border: none;
     font-size: 16px;
     cursor: pointer;
-    border-bottom: 1px solid #555;
+    border-bottom: 1px solid #333;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .sidebar button:hover {
-    background-color: #4CAF50;
+    background-color: #333;
+    transform: scale(1.05);
 }
 
 /* Main Content Styles */
 .main-content {
-    margin-left: 181px;
+    margin-left: 200px;
     padding: 20px;
     flex-grow: 1;
-    margin-top: -40px;
 }
 
-/* Form and Notice Styles */
-form {
-    background-color: white;
+/* Notices and Animations */
+.notice {
+    background-color: #1f1f1f;
     padding: 20px;
     margin: 20px auto;
     max-width: 600px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.5s ease;
+}
+
+.notice p {
+    margin: 8px 0;
+    color: #bdbdbd;
+}
+
+.notice strong {
+    color: #ffab40;
+}
+
+/* Form Styles */
+form {
+    background-color: #1f1f1f;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 label {
     font-size: 14px;
     margin-bottom: 8px;
+    color: #bdbdbd;
     display: block;
 }
 
 input[type="text"],
-input[type="date"],
 textarea,
-select,
-input[type="file"] {
+select {
     width: 100%;
     padding: 8px;
     margin: 10px 0 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #333;
     border-radius: 4px;
     font-size: 14px;
+    background-color: #2c2c2c;
+    color: #e0e0e0;
 }
 
 input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #333;
+    color: #e0e0e0;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 input[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: #444;
+    transform: scale(1.05);
 }
 
-.notice {
-    background-color: white;
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#admin-section {
+    background-color: #1f1f1f;
     padding: 20px;
     margin: 20px auto;
     max-width: 600px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    overflow-x: hidden;
+    /* Remove side scrollbars */
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    background-color: #1c1c1c;
+    padding-top: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    color: #bdbdbd;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.sidebar button {
+    background-color: #1c1c1c;
+    color: #bdbdbd;
+    padding: 15px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-bottom: 1px solid #333;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.sidebar button:hover {
+    background-color: #333;
+    transform: scale(1.05);
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 200px;
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+    /* Only vertical scrolling */
+}
+
+/* Notice Cards */
+.notice {
+    background-color: #1f1f1f;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transform: scale(1);
+    transition: all 0.3s ease;
+}
+
+.notice:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.3);
 }
 
 .notice p {
     margin: 8px 0;
+    color: #bdbdbd;
 }
 
 .notice strong {
-    color: #4CAF50;
+    color: #ffab40;
 }
 
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+/* Admin Section */
+#admin-section {
+    background-color: #1f1f1f;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    display: none;
 }
 
-.search-form {
-    text-align: center;
-    margin: 20px;
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.search-form input[type="text"] {
-    width: 60%;
-    padding: 8px;
-    margin-right: 10px;
+.notice {
+    animation: fadeIn 0.5s ease;
 }
 
-.search-form input[type="submit"] {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
+/* Scrollbar Styling */
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #444;
     border-radius: 4px;
 }
 
-/* Hide notices by default */
-.notices {
-    display: none;
+/* Scrollbar Styling (Both Horizontal and Vertical) */
+body::-webkit-scrollbar {
+    height: 8px;
+    /* For horizontal scrollbar */
+    width: 8px;
+    /* For vertical scrollbar */
 }
+
+body::-webkit-scrollbar-thumb {
+    background-color: #444;
+    /* Dark grey color for the thumb */
+    border-radius: 4px;
+    /* Rounded scrollbar thumb */
+}
+
+body::-webkit-scrollbar-track {
+    background-color: #1c1c1c;
+    /* Slightly lighter background for the track */
+}
+
+/* Vishwaportal Heading */
+h1 {
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+    padding: 20px;
+    text-align: left;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    /* Fix to the top of the screen */
+    top: 0;
+    z-index: 1000;
+    /* Ensure it stays above other elements */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+h1 .logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+    animation: logoPulse 2s infinite;
+    /* Animation for the logo */
+}
+
+@keyframes logoPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+h1 span {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffab40;
+    /* Accent color for part of the heading */
+    margin-left: 10px;
+}
+
+/* Adjust body content to account for fixed heading */
+.main-content {
+    margin-top: 80px;
+    /* Offset to prevent content from hiding under the heading */
+}
+
+
