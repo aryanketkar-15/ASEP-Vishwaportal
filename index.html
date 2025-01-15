@@ -4,232 +4,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vishwaportal - Notice Board</title>
+    <title>College Noticeboard</title>
+
     <link rel="stylesheet" href="style.css">
-    
+
 </head>
 
 <body>
-
-
-    <!-- Sidebar Section -->
-    <div class="sidebar">
-        <button onclick="toggleNotices('exam')">Exams</button>
-        <button onclick="toggleNotices('assignment')">Assignments</button>
-        <button onclick="toggleNotices('event')">Events</button>
-        <button onclick="toggleNotices('other')">Other</button>
-        <button onclick="showAdminSection()">Admin</button>
+    <div class="sidebar hidden">
+        <div class="logo">
+            <h2>College Noticeboard</h2>
+        </div>
+        <button class="nav-btn active" data-type="all">All Notices</button>
+        <button class="nav-btn" data-type="academic">Academic</button>
+        <button class="nav-btn" data-type="events">Events</button>
+        <button class="nav-btn" data-type="sports">Sports</button>
+        <button class="nav-btn" data-type="examination">Examination</button>
+        <button id="addNoticeBtn" class="nav-btn" style="display: none;">Add Notice</button>
 
     </div>
 
-    <!-- Main Content Section -->
-    <div class="main-content">
-        <!-- Header Section -->
-        <h1>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAA4CAMAAAC49krEAAAAhFBMVEX///8YXKsAVKgAT6YAVqgAUacATaXz9voPWarv8/gAS6Tr8Pe6yuLS3OzoAABzlMWgt9iUrtPK1+nd5fBSfbqMp8+0xd/Bz+Stv9yCoMzl6/R4mskAQ6JBc7UwabFLebj0oqH5zs3uXVzpHxz2srIAPaDrPjz+9fUiYq5mjMEAMpxdhL0rCCIKAAACN0lEQVRIiY2VAbOiIBDHFwQBjQQVEcx6d++9uzy///c7EmvmjRU6NWXzc5f97383AGCw9xrKnWBzOuwNeXL7QIbpuC+9opzYXeSZo0LvAW2OEL2IHWTLESJ70jchJOKZSZMVCSSibbJPjN5ARJBMkTqSvFApEvGFRKdUzEMWQd6mQo5ryCLVTl9EECd7FCUKpadAgSNIuxR5l+icAuEa68mSqndRIjIlQ64SZT8V+vi1AZsoEf7Rx9/H45ZcJeKPH5iFz8/j1wZcXUQfE2y/7dfxz9/tKc0iJh/v91Nm/PN6Yjl5s94SrK/PwSjRXSGbnd0ri0aJsjiTFR1Gnj8fkCjR6iGMNUFkfh5yuknErzEz1xjJf88tKvIl902hCrcVHuHVHC0S8Uv4Rom5vut8HAkJlhKN3zm+v0lEhltDDaHv9uwiUc4wmWaeNW9AWSyn5FhxlL1dM1EiRFSo6x0HZR6nx5HUQlgkIm7koablSRDCe8EEg5IBK4GxJrzD3xRZnI5R0cdTH5SevDNK67qF1krTOVlV0C4u4orQYU1xEVo6bfzQ2knNvZvVYOfJzH2QiLcTfTi4BG9FeUvpwTNfQgM1hFf4yInZ7oLJeVXZSVe6ckxN3VwPfsrU1omDcabvD96VnSt7xeZG12Vhtk3RB9H1B+m1kNKVlmmra7Avxmp7NcGwQrLkKgIdulIZWSRB8c2A+hqnc4+dHKFOruAw5G3V7wIhKxjsSQ1VGOk6XUwQKEhehuX/HxyKH1/r+UlPAAAAAElFTkSuQmCC"
-                alt="Logo" class="logo">
-            Vishwaportal - College Notice Board
-
-            
-
-        </h1>
-        <p>Centralized platform for all notices</p>
-
-        <!-- Search Section -->
-        <h2>Search Notices</h2>
-        <form class="search-form">
-            <input type="text" id="search" name="search" placeholder="Search by keyword">
-            <input type="submit" value="Search">
-        </form>
-        <hr>
-
-        <!--admin-->
-        <div id="admin-section" style="display: none;">
-            <h2>Add a New Notice</h2>
-            <form id="add-notice-form">
-                <label for="category">Category:</label>
-                <select id="category" name="category">
-                    <option value="exam">Exam</option>
-                    <option value="assignment">Assignment</option>
-                    <option value="event">Event</option>
-                    <option value="other">Other</option>
-                </select><br><br>
-
-                <label for="title">Title:</label>
-                <input type="text" id="title" name="title" placeholder="Enter notice title"><br><br>
-
-                <label for="description">Description:</label>
-                <textarea id="description" name="description" placeholder="Enter notice details"></textarea><br><br>
-
-                <label for="date">Date:</label>
-                <input type="date" id="date" name="date"><br><br>
-
-                <button type="button" onclick="addNotice()">Add Notice</button>
-            </form>
+    <div class="main-content hidden">
+        <div class="header">
+            <h1>Vishwaportal</h1>
+            <p>Stay updated with the latest announcements</p>
         </div>
-
-        <!-- Notices Section -->
-        <h2>Notices</h2>
-        <div class="notice-list">
-
-            <!-- Exam Notices -->
-            <div class="notices exam">
-                <div class="notice">
-                    <p class="notice-heading" onclick="toggleNotice(this)">[Pinned] Exam Schedule Released</p>
-                    <div class="notice-content">
-                        <p><strong>Title:</strong> Exam Schedule Released</p>
-                        <p><strong>Description:</strong> The exam schedule for Semester 1 has been released. Check the
-                            college website for details.</p>
-                        <p><strong>Category:</strong> Exam</p>
-                        <p><strong>Date:</strong> 12th December 2024</p>
-                        <p><strong>Attachment:</strong> <a href="#">Download Schedule</a></p>
-                    </div>
-                </div>
-                <div class="notice">
-                    <p class="notice-heading" onclick="toggleNotice(this)">Lab Exam Details</p>
-                    <div class="notice-content">
-                        <p><strong>Title:</strong> Lab Exam Details</p>
-                        <p><strong>Description:</strong> Lab exams for practical subjects will be conducted from 18th
-                            December. Timings will be announced soon.</p>
-                        <p><strong>Category:</strong> Exam</p>
-                        <p><strong>Date:</strong> 10th December 2024</p>
-                    </div>
-                </div>
-                <div class="notice">
-                    <p class="notice-heading" onclick="toggleNotice(this)">Re-exam Application</p>
-                    <div class="notice-content">
-                        <p><strong>Title:</strong> Re-exam Application</p>
-                        <p><strong>Description:</strong> Students who missed the exams can apply for re-exams by 20th
-                            December 2024.</p>
-                        <p><strong>Category:</strong> Exam</p>
-                        <p><strong>Date:</strong> 11th December 2024</p>
-                    </div>
-                </div>
+        <div class="search-sort-container">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search notices..." id="searchInput">
             </div>
-
-            <!-- Assignment Notices -->
-            <div class="notices assignment">
-                <div class="notice">
-                    <p class="notice-heading" onclick="toggleNotice(this)">Assignment Submission</p>
-                    <div class="notice-content">
-                        <p><strong>Title:</strong> Assignment Submission</p>
-                        <p><strong>Description:</strong> Submit your assignments by 15th December 2024.</p>
-                        <p><strong>Category:</strong> Assignment</p>
-                        <p><strong>Date:</strong> 10th December 2024</p>
-                    </div>
-                </div>
-                <div class="notice">
-                    <p class="notice-heading" onclick="toggleNotice(this)">Group Project Submission</p>
-                    <div class="notice-content">
-                        <p><strong>Title:</strong> Group Project Submission</p>
-                        <p><strong>Description:</strong> Submit your group projects in the college portal by 22nd
-                            December
-                            2024.</p>
-                        <p><strong>Category:</strong> Assignment</p>
-                        <p><strong>Date:</strong> 11th December 2024</p>
-                    </div>
-                </div>
-                <div class="notice">
-                    <p class="notice-heading" onclick="toggleNotice(this)">Research Paper Review</p>
-                    <div class="notice-content">
-                        <p><strong>Title:</strong> Research Paper Review</p>
-                        <p><strong>Description:</strong> Submit your draft research papers for review by 30th December
-                            2024.
-                        </p>
-                        <p><strong>Category:</strong> Assignment</p>
-                        <p><strong>Date:</strong> 13th December 2024</p>
-                    </div>
-                </div>
+            <div class="sort-container">
+                <label for="sortSelect">Sort by:</label>
+                <select id="sortSelect" class="sort-select">
+                    <option value="date-desc">Date (Newest First)</option>
+                    <option value="date-asc">Date (Oldest First)</option>
+                    <option value="title-asc">Title (A-Z)</option>
+                    <option value="title-desc">Title (Z-A)</option>
+                </select>
             </div>
-
-            <!-- Event Notices -->
-            <div class="notices event">
-                <div class="notice">
-                    <p class="notice-heading" onclick="toggleNotice(this)">Holiday Announcement</p>
-                    <div class="notice-content">
-                        <p><strong>Title:</strong> Holiday Announcement</p>
-                        <p><strong>Description:</strong> College will remain closed on 25th December for Christmas.</p>
-                        <p><strong>Category:</strong> Event</p>
-                        <p><strong>Date:</strong> 9th December 2024</p>
-                    </div>
-                </div>
-                <div class="notice">
-                    <p class="notice-heading" onclick="toggleNotice(this)">Annual Sports Meet</p>
-                    <div class="notice-content">
-                        <p><strong>Title:</strong> Annual Sports Meet</p>
-                        <p><strong>Description:</strong> The annual sports meet will take place on 20th December.
-                            Register
-                            your participation by 15th December.</p>
-                        <p><strong>Category:</strong> Event</p>
-                        <p><strong>Date:</strong> 10th December 2024</p>
-                    </div>
-                </div>
-                <div class="notice">
-                    <p class="notice-heading" onclick="toggleNotice(this)">Cultural Fest</p>
-                    <div class="notice-content">
-                        <p><strong>Title:</strong> Cultural Fest</p>
-                        <p><strong>Description:</strong> Join us for the cultural fest on 27th December. Registration is
-                            open until 20th December.</p>
-                        <p><strong>Category:</strong> Event</p>
-                        <p><strong>Date:</strong> 12th December 2024</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Other Notices -->
-            <div class="notices other">
-                <div class="notice">
-                    <p class="notice-heading" onclick="toggleNotice(this)">Library Books Return</p>
-                    <div class="notice-content">
-                        <p><strong>Title:</strong> Library Books Return</p>
-                        <p><strong>Description:</strong> All borrowed books should be returned to the library by 24th
-                            December.</p>
-                        <p><strong>Category:</strong> Other</p>
-                        <p><strong>Date:</strong> 8th December 2024</p>
-                    </div>
-                </div>
-                <div class="notice">
-                    <p class="notice-heading" onclick="toggleNotice(this)">Parking Update</p>
-                    <div class="notice-content">
-                        <p><strong>Title:</strong> Parking Update</p>
-                        <p><strong>Description:</strong> Parking will not be available on 25th December due to
-                            maintenance
-                            work.</p>
-                        <p><strong>Category:</strong> Other</p>
-                        <p><strong>Date:</strong> 9th December 2024</p>
-                    </div>
-                </div>
-                <div class="notice">
-                    <p class="notice-heading" onclick="toggleNotice(this)">IT System Upgrade</p>
-                    <div class="notice-content">
-                        <p><strong>Title:</strong> IT System Upgrade</p>
-                        <p><strong>Description:</strong> The college IT systems will undergo maintenance on 15th
-                            December
-                            from 2 PM to 6 PM.</p>
-                        <p><strong>Category:</strong> Other</p>
-                        <p><strong>Date:</strong> 7th December 2024</p>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Notices Here -->
-            <div class="notices exam">
-                <div class="notice">
-                    <p class="notice-heading" onclick="toggleNotice(this)">[Pinned] Exam Schedule Released</p>
-                    <div class="notice-content">
-                        <p><strong>Title:</strong> Exam Schedule Released</p>
-                        <p><strong>Description:</strong> The exam schedule for Semester 1 has been released. Check the
-                            college website for details.</p>
-                        <p><strong>Category:</strong> Exam</p>
-                        <p><strong>Date:</strong> 12th December 2024</p>
-                        <p><strong>Attachment:</strong> <a href="#">Download Schedule</a></p>
-                    </div>
-                </div>
-            </div>
-            <!-- Repeat for other categories -->
         </div>
-        <script src="script.js"></script>
+        <div class="notice-board" id="noticeBoard">
+            <!-- Notices will be dynamically added here -->
+        </div>
+    </div>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button id="loginBtn">Login</button>
+        </div>
+    </div>
+
+    <div id="addNoticeModal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Add New Notice</h2>
+            <input type="text" id="noticeTitle" placeholder="Notice Title">
+            <textarea id="noticeContent" placeholder="Notice Content" rows="4"></textarea>
+            <select id="noticeType">
+                <option value="">Select Notice Type</option>
+                <option value="academic">Academic</option>
+                <option value="events">Events</option>
+                <option value="sports">Sports</option>
+                <option value="examination">Examination</option>
+            </select>
+            <select id="noticePriority">
+                <option value="low">Low Priority</option>
+                <option value="medium">Medium Priority</option>
+                <option value="high">High Priority</option>
+                <option value="urgent">Urgent</option>
+            </select>
+            <div class="file-upload">
+                <label for="noticeAttachments">Attachments:</label>
+                <input type="file" id="noticeAttachments" multiple>
+                <div id="attachmentsList"></div>
+            </div>
+            <button id="postNoticeBtn">Post Notice</button>
+            <button id="closeNoticeModalBtn">Cancel</button>
+        </div>
+    </div>
+
+    <script src = "script.js"></script>
 
 </body>
 
