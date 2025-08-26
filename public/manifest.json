@@ -1,0 +1,17 @@
+{
+    "name": "Vishwaportal",
+    "short_name": "Vishwaportal",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#3b82f6",
+    "gcm_sender_id": "1060321212945",
+    "icons": [
+      {
+        "src": "VITLogo.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      }
+    ]
+  }
+  
